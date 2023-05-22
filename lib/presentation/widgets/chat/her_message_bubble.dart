@@ -28,7 +28,7 @@ class HerMessageBubble extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 5),
-        const _ImageBubble(),
+        _ImageBubble(message: message.imageUrl),
         const SizedBox(height: 10),
       ],
     );
@@ -36,8 +36,11 @@ class HerMessageBubble extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
+  final String? message;
+
   const _ImageBubble({
     super.key,
+    required this.message,
   });
 
   @override
@@ -47,7 +50,7 @@ class _ImageBubble extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Image.network(
-        'https://www.xtrafondos.com/wallpapers/tanjiro-kamado-de-kimetsu-no-yaiba-3727.jpg',
+        message ?? '',
         width: size.width * 0.7,
         height: 150,
         fit: BoxFit.cover,

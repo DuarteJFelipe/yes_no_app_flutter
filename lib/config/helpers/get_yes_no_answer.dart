@@ -1,11 +1,15 @@
+import 'package:dio/dio.dart';
 import 'package:yes_no_app/domain/entities/message.dart';
+import 'package:yes_no_app/infrastructure/models/yes_no_model.dart';
 
 class GetYesNoAswers {
-  Future<Message> getAnswer(String text) async {
-    if (text.trim().isEmpty)
-      return Message(text: 'No me has preguntado nada', fromWho: FromWho.other);
+  final _dio = Dio();
 
-    final newMessage = Message(text: 'Si', fromWho: FromWho.other);
-    return newMessage;
+  Future<Message> getAnswer() async {
+    final response = await _dio.get('https://yesno.wtf/api');
+
+    final yesNoModel = YesNoModel.fromJsonMap(response.data);
+
+    return yesNoModel.toMessageEntity();
   }
 }
