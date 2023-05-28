@@ -11,7 +11,7 @@ class ChatProvider extends ChangeNotifier {
   Future<void> sendMessage(String text) async {
     if (text.trim().isEmpty) return;
 
-    final newMessage = Message(text: text, fromWho: FromWho.me);
+    final newMessage = Message(text: text, fromWho: FromWho.other);
     messageList.add(newMessage);
 
     if (text.endsWith('?')) {
@@ -25,8 +25,8 @@ class ChatProvider extends ChangeNotifier {
   Future<void> otherReply() async {
     final otherMessage = await getYesNoAswers.getAnswer();
     messageList.add(otherMessage);
-    notifyListeners();
 
+    notifyListeners();
     moveScrollToBottom();
   }
 

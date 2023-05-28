@@ -4,7 +4,7 @@ import 'package:yes_no_app/domain/entities/message.dart';
 class MyMessageBubble extends StatelessWidget {
   final Message message;
 
-  MyMessageBubble({super.key, required this.message});
+  const MyMessageBubble({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,10 @@ class MyMessageBubble extends StatelessWidget {
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20))),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text(
-              '${message.text}',
-              style: TextStyle(color: Colors.white),
+              message.text,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ),

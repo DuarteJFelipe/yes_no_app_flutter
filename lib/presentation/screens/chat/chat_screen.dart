@@ -12,24 +12,23 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Siri'),
-          leading: const Padding(
-            padding: EdgeInsets.all(4),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://avatars.githubusercontent.com/u/29775473?v=4'),
-            ),
+      appBar: AppBar(
+        title: const Text('Siri'),
+        leading: const Padding(
+          padding: EdgeInsets.all(4),
+          child: CircleAvatar(
+            backgroundImage: NetworkImage(
+                'https://avatars.githubusercontent.com/u/29775473?v=4'),
           ),
         ),
-        body: const _ChatView());
+      ),
+      body: const _ChatView(),
+    );
   }
 }
 
 class _ChatView extends StatelessWidget {
-  const _ChatView({
-    super.key,
-  });
+  const _ChatView();
 
   @override
   Widget build(BuildContext context) {
