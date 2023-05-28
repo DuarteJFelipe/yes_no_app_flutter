@@ -11,7 +11,7 @@ class ChatProvider extends ChangeNotifier {
   Future<void> sendMessage(String text) async {
     if (text.trim().isEmpty) return;
 
-    final newMessage = Message(text: text, fromWho: FromWho.other);
+    final newMessage = Message(text: text, fromWho: FromWho.me);
     messageList.add(newMessage);
 
     if (text.endsWith('?')) {
